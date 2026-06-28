@@ -1,0 +1,148 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #262a2f;
+}
+
+.container {
+  width: 400px;
+  padding: 25px 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.container p {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.container input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #494eea;
+  outline: none;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.container input.error {
+  border-color: red;
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.container button {
+  width: 100%;
+  height: 50px;
+  background: #494eea;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin: 20px 0;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.container button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+.controls { display: flex; gap: 10px; align-items: center; justify-content: center; }
+.controls button { flex: 1; min-width: 0; }
+.download-btn {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #6c6ff2;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.download-btn[hidden]{ display: none; }
+.msg {
+  color: red;
+  margin-top: 6px;
+  min-height: 18px;
+}
+
+#imgBox {
+  width: 200px;
+  border-radius: 5px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s, border 0.3s;
+  margin: 0 auto;
+}
+
+#imgBox img {
+  width: 100%;
+  padding: 10px;
+  opacity: 0; /* start invisible */
+}
+
+/* Show image container and border */
+#imgBox.show-img {
+  max-height: 300px;
+  border: 1px solid #d1d1d1;
+  margin: 10px auto;
+}
+
+/* Make image visible when container is shown */
+#imgBox.show-img img {
+  opacity: 1;
+}
+
+/* Fade and scale animation */
+.fade-in {
+  animation: fadeScale 0.6s ease forwards;
+}
+
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
